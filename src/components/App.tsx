@@ -1,30 +1,18 @@
-import * as React from 'react';
-import './App.css';
+import * as React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import logo from '../logo.svg';
-
-import { Navbar } from 'react-bootstrap';
-
+import Home from './Home';
+import Application from './Application';
 
 class App extends React.Component {
-  public render() {
+  render() {
     return (
-      <div className="App">
-        <Navbar>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <a href="#home">React-Bootstrap</a>
-            </Navbar.Brand>
-          </Navbar.Header>
-        </Navbar>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+        <div>
+          <Route exact path="/" component={Home} />
+          <Route path="/app" component={Application} /> 
+        </div>
+      </Router>
     );
   }
 }
