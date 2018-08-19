@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './App.css';
 
-import logo from './logo.svg';
+import logo from '../logo.svg';
 
 import { Navbar } from 'react-bootstrap';
 
