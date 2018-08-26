@@ -8,7 +8,7 @@ class NavBar extends React.Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to="/">Friday</Link>
+            <Link to="/">Coding for fun</Link>
           </Navbar.Brand>
         </Navbar.Header>
         <Nav>
