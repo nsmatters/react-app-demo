@@ -29,11 +29,6 @@ export class CalendarToolbar extends React.Component<CalendarToolbarProps, Calen
     this.state = { platform: 'iOS' }
   }
 
-  componentDidMount() {
-    console.log('test:');
-    console.log(this.props.label);
-  }
-
   handleNextEvent() {
     const date = this.props.date;
     date.setMonth(date.getMonth() + 1);

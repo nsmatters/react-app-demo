@@ -11,7 +11,7 @@ BigCalendar.momentLocalizer(moment);
 class Calendar extends React.Component {
   render() {
     return (
-      <div className="calenader">
+      <div className="calenader-container">
         <BigCalendar
           events={[]}
           views={["month"]}

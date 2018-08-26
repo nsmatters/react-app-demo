@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import './AppNavbar.css'
 
-class NavBar extends React.Component {
+class AppNavbar extends React.Component {
   render() {
     return (
-      <Navbar>
+      <Navbar inverse>
         <Navbar.Header>
           <Navbar.Brand>
             <Link to="/">Coding for fun</Link>
@@ -21,4 +22,4 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+export default AppNavbar;

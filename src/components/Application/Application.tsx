@@ -1,12 +1,12 @@
 import * as React from 'react';
-import NavBar from './NavBar';
+import AppNavbar from '../AppNavbar/AppNavbar';
 import { Grid } from 'react-bootstrap'
 
 class Application extends React.Component {
   render() {
     return (
       <div>
-        <NavBar />
+        <AppNavbar />
         <Grid>
           application
         </Grid>
