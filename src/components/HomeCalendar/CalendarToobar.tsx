@@ -66,7 +66,7 @@ export class CalendarToolbar extends React.Component<CalendarToolbarProps, Calen
             <MenuItem eventKey={1}>Android</MenuItem>
           </DropdownButton>
           <Button bsStyle="primary">订阅</Button>
-          <span>{this.props.label}</span>
+          <span className="calendar-title">{this.props.label}</span>
           <ButtonGroup id="button-group-right">
             <Button onClick={this.handlePreviousEvent}>Previouse</Button>
             <Button onClick={this.handleTodayEvent}>Today</Button>
