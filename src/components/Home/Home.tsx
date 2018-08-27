@@ -1,6 +1,5 @@
 import * as React from 'react';
 import AppNavbar from '../AppNavbar/AppNavbar';
-import { Grid } from 'react-bootstrap';
 import Calendar from '../HomeCalendar/Calendar'
 
 class Home extends React.Component {
@@ -8,9 +7,9 @@ class Home extends React.Component {
     return (
       <div>
         <AppNavbar />
-        <Grid>
+        <div className="container-fluid">
           <Calendar />
-        </Grid>
+        </div>
       </div>
     );
   }

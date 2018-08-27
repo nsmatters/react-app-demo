@@ -1,23 +1,22 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import './AppNavbar.css'
 
 class AppNavbar extends React.Component {
   render() {
     return (
-      <Navbar inverse>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <Link to="/">Coding for fun</Link>
-          </Navbar.Brand>
-        </Navbar.Header>
-        <Nav>
-          <NavItem eventKey={1} href="/app">
-            Applications
-          </NavItem>
-        </Nav>
-      </Navbar>
+      <nav className="navbar navbar-inverse">
+        <div className="container-fluid">
+          <div className="navbar-header">
+            <Link to="/" className="navbar-brand">Coding for fun</Link>
+          </div>
+          <ul className="nav navbar-nav">
+            <li key={0}>
+              <Link to="/app">Applications</Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
     );
   }
 }
