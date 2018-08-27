@@ -48,31 +48,31 @@ export class CalendarToolbar extends React.Component<CalendarToolbarProps, Calen
 
   handleDropdownSelected(eventKey: any) {
     const index = eventKey as number;
-    this.setState({ platform : index == 0 ? 'iOS' : 'Android' })
+    this.setState({ platform: index == 0 ? 'iOS' : 'Android' })
   }
 
   render() {
     const platform = this.state.platform
     return (
       <ButtonToolbar className="calendar-toolbar">
-          <DropdownButton
-            bsStyle='default'
-            title={platform}
-            key={0}
-            id='dropdown-basic'
-            onSelect={(eventKey: any, e?: React.SyntheticEvent<{}>) => this.handleDropdownSelected(eventKey)}
-          >
-            <MenuItem eventKey={0}>iOS</MenuItem>
-            <MenuItem eventKey={1}>Android</MenuItem>
-          </DropdownButton>
-          <Button bsStyle="primary">订阅</Button>
-          <span className="calendar-title">{this.props.label}</span>
-          <ButtonGroup id="button-group-right">
-            <Button onClick={this.handlePreviousEvent}>Previouse</Button>
-            <Button onClick={this.handleTodayEvent}>Today</Button>
-            <Button onClick={this.handleNextEvent}>Next</Button>
-          </ButtonGroup>
-        </ButtonToolbar>
+        <DropdownButton
+          bsStyle='default'
+          title={platform}
+          key={0}
+          id='dropdown-basic'
+          onSelect={(eventKey: any, e?: React.SyntheticEvent<{}>) => this.handleDropdownSelected(eventKey)}
+        >
+          <MenuItem eventKey={0}>iOS</MenuItem>
+          <MenuItem eventKey={1}>Android</MenuItem>
+        </DropdownButton>
+        <Button bsStyle="primary">订阅</Button>
+        <div className="calendar-title">{this.props.label}</div>
+        <ButtonGroup id="button-group-right">
+          <Button onClick={this.handlePreviousEvent}>Previouse</Button>
+          <Button onClick={this.handleTodayEvent}>Today</Button>
+          <Button onClick={this.handleNextEvent}>Next</Button>
+        </ButtonGroup>
+      </ButtonToolbar>
     );
   }
 }

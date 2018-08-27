@@ -11,7 +11,7 @@ class Application extends React.Component {
       <div>
         <AppNavbar />
         <Grid>
-          { applist.map(x => <AppItem />)}
+          {applist.map(x => <AppItem key={x} />)}
         </Grid>
       </div>
     );

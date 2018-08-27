@@ -7,7 +7,10 @@
 }
 
 .calendar-title {
-  position: relative;
-  left: 30%;
-  font-size: 25px;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 26px;
 }
