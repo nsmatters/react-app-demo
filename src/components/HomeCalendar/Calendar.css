@@ -7,3 +7,20 @@
   min-height: 580px;
   min-width: 1180px;
 }
+
+.calendar-toolbar {
+  margin-bottom: 15px;
+}
+
+#button-group-right {
+  float: right;
+}
+
+.calendar-title {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 26px;
+}

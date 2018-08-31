@@ -1,7 +1,7 @@
 import * as React from 'react';
 import BigCalendar from 'react-big-calendar';
 import * as moment from 'moment';
-import { CalendarToolbar } from './CalendarToobar'
+import { ButtonToolbar, Button, ButtonGroup, DropdownButton, MenuItem } from 'react-bootstrap';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import './Calendar.css'
@@ -20,7 +20,7 @@ class Calendar extends React.Component<object, ClendarState> {
 
     this.handleDropdownClicked = this.handleDropdownClicked.bind(this);
     this.handleLeftButtonClicked = this.handleLeftButtonClicked.bind(this);
-    this.handleTodayClicked = this.handleTodayClicked.bind(this);
+    this.handleTodayButtonClicked = this.handleTodayButtonClicked.bind(this);
     this.handleRightButtonClicked = this.handleRightButtonClicked.bind(this);
   }
 
@@ -35,17 +35,19 @@ class Calendar extends React.Component<object, ClendarState> {
 
   handleLeftButtonClicked() {
     const date = this.state.date;
+    date.setDate(1)
     date.setMonth(date.getMonth() - 1)
     this.setState({ date: date })
   }
 
-  handleTodayClicked() {
+  handleTodayButtonClicked() {
     const date = new Date();
     this.setState({ date: date })
   }
 
   handleRightButtonClicked() {
     const date = this.state.date;
+    date.setDate(1)
     date.setMonth(date.getMonth() + 1)
     this.setState({ date: date })
   }
@@ -53,14 +55,29 @@ class Calendar extends React.Component<object, ClendarState> {
   render() {
     return (
       <div className="calenader-container">
-        <CalendarToolbar
-          label={'Hello world'}
-          platform={this.state.platform}
-          onDropDownClicked={this.handleDropdownClicked}
-          onLeftButtonClicked={this.handleLeftButtonClicked}
-          onTodayButtonClicked={this.handleTodayClicked}
-          onRightButtonClicked={this.handleRightButtonClicked}
-        />
+        <ButtonToolbar className="calendar-toolbar">
+        <DropdownButton
+          bsStyle='default'
+          title={this.state.platform}
+          key={0}
+          id='dropdown-basic'
+          onSelect={(eventKey: any, e?: React.SyntheticEvent<{}>) => this.handleDropdownClicked(eventKey)}
+        >
+          <MenuItem eventKey={0}>iOS</MenuItem>
+          <MenuItem eventKey={1}>Android</MenuItem>
+        </DropdownButton>
+        <Button bsStyle="primary">订阅</Button>
+        <div className="calendar-title">{moment(this.state.date).format('MMMM YYYY')}</div>
+        <ButtonGroup id="button-group-right">
+          <Button onClick={this.handleLeftButtonClicked}>
+            <span className="glyphicon glyphicon-menu-left"></span>
+          </Button>
+          <Button onClick={this.handleTodayButtonClicked}>Today</Button>
+          <Button onClick={this.handleRightButtonClicked}>
+            <span className="glyphicon glyphicon-menu-right"></span>
+          </Button>
+        </ButtonGroup>
+      </ButtonToolbar>
         <BigCalendar
           events={[]}
           views={["month"]}
