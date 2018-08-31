@@ -67,6 +67,9 @@ class Calendar extends React.Component<object, ClendarState> {
           <MenuItem eventKey={1}>Android</MenuItem>
         </DropdownButton>
         <Button bsStyle="primary">订阅</Button>
+        <Button>
+          <span className="glyphicon glyphicon-cog"></span>
+        </Button>
         <div className="calendar-title">{moment(this.state.date).format('MMMM YYYY')}</div>
         <ButtonGroup id="button-group-right">
           <Button onClick={this.handleLeftButtonClicked}>
