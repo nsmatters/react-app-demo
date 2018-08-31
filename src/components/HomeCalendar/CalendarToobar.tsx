@@ -68,9 +68,13 @@ export class CalendarToolbar extends React.Component<CalendarToolbarProps, Calen
         <Button bsStyle="primary">订阅</Button>
         <div className="calendar-title">{this.props.label}</div>
         <ButtonGroup id="button-group-right">
-          <Button onClick={this.handlePreviousEvent}>Previouse</Button>
+          <Button onClick={this.handlePreviousEvent}>
+            <span className="glyphicon glyphicon-menu-left"></span>
+          </Button>
           <Button onClick={this.handleTodayEvent}>Today</Button>
-          <Button onClick={this.handleNextEvent}>Next</Button>
+          <Button onClick={this.handleNextEvent}>
+            <span className="glyphicon glyphicon-menu-right"></span>
+          </Button>
         </ButtonGroup>
       </ButtonToolbar>
     );
