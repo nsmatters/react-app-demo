@@ -3,64 +3,26 @@ import { ButtonToolbar, Button, ButtonGroup, DropdownButton, MenuItem } from 're
 
 import './CalendarToolbar.css'
 
-enum CalendarAction {
-  prev = 'prev',
-  next = 'next',
-  current = 'current'
-}
-
 interface CalendarToolbarProps {
   label: string;
-  date: Date;
-  onNavigate: (action: string, newDate: Date) => void;
-}
-
-interface CalendarToolbarState {
   platform: string;
+  onLeftButtonClicked: () => void;
+  onTodayButtonClicked: () => void;
+  onRightButtonClicked: () => void;
+  onDropDownClicked: (eventKey: any) => void;
 }
 
-export class CalendarToolbar extends React.Component<CalendarToolbarProps, CalendarToolbarState> {
-  constructor(props: CalendarToolbarProps) {
-    super(props);
-    this.handleNextEvent = this.handleNextEvent.bind(this);
-    this.handlePreviousEvent = this.handlePreviousEvent.bind(this);
-    this.handleTodayEvent = this.handleTodayEvent.bind(this);
-    this.handleDropdownSelected = this.handleDropdownSelected.bind(this);
-    this.state = { platform: 'iOS' }
-  }
-
-  handleNextEvent() {
-    const date = this.props.date;
-    date.setMonth(date.getMonth() + 1);
-    this.props.onNavigate(CalendarAction.next, date);
-  }
-
-  handleTodayEvent() {
-    const date = new Date();
-    this.props.onNavigate(CalendarAction.current, date);
-  }
-
-  handlePreviousEvent() {
-    const date = this.props.date;
-    date.setMonth(date.getMonth() - 1);
-    this.props.onNavigate('prev', this.props.date);
-  }
-
-  handleDropdownSelected(eventKey: any) {
-    const index = eventKey as number;
-    this.setState({ platform: index == 0 ? 'iOS' : 'Android' })
-  }
+export class CalendarToolbar extends React.Component<CalendarToolbarProps, object> {
 
   render() {
-    const platform = this.state.platform
     return (
       <ButtonToolbar className="calendar-toolbar">
         <DropdownButton
           bsStyle='default'
-          title={platform}
+          title={this.props.platform}
           key={0}
           id='dropdown-basic'
-          onSelect={(eventKey: any, e?: React.SyntheticEvent<{}>) => this.handleDropdownSelected(eventKey)}
+          onSelect={(eventKey: any, e?: React.SyntheticEvent<{}>) => this.props.onDropDownClicked(eventKey)}
         >
           <MenuItem eventKey={0}>iOS</MenuItem>
           <MenuItem eventKey={1}>Android</MenuItem>
@@ -68,11 +30,11 @@ export class CalendarToolbar extends React.Component<CalendarToolbarProps, Calen
         <Button bsStyle="primary">订阅</Button>
         <div className="calendar-title">{this.props.label}</div>
         <ButtonGroup id="button-group-right">
-          <Button onClick={this.handlePreviousEvent}>
+          <Button onClick={this.props.onLeftButtonClicked}>
             <span className="glyphicon glyphicon-menu-left"></span>
           </Button>
-          <Button onClick={this.handleTodayEvent}>Today</Button>
-          <Button onClick={this.handleNextEvent}>
+          <Button onClick={this.props.onTodayButtonClicked}>Today</Button>
+          <Button onClick={this.props.onRightButtonClicked}>
             <span className="glyphicon glyphicon-menu-right"></span>
           </Button>
         </ButtonGroup>
