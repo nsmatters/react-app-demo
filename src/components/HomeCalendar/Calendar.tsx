@@ -1,7 +1,7 @@
 import * as React from 'react';
 import BigCalendar from 'react-big-calendar';
 import * as moment from 'moment';
-import { ButtonToolbar, Button, ButtonGroup, DropdownButton, MenuItem } from 'react-bootstrap';
+import { ButtonToolbar, Button, ButtonGroup, DropdownButton, MenuItem, Glyphicon } from 'react-bootstrap';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import './Calendar.css'
@@ -68,16 +68,16 @@ class Calendar extends React.Component<object, ClendarState> {
         </DropdownButton>
         <Button bsStyle="primary">订阅</Button>
         <Button>
-          <span className="glyphicon glyphicon-cog"></span>
+          <Glyphicon glyph="cog" />
         </Button>
         <div className="calendar-title">{moment(this.state.date).format('MMMM YYYY')}</div>
         <ButtonGroup id="button-group-right">
           <Button onClick={this.handleLeftButtonClicked}>
-            <span className="glyphicon glyphicon-menu-left"></span>
+            <Glyphicon glyph="menu-left" />
           </Button>
           <Button onClick={this.handleTodayButtonClicked}>Today</Button>
           <Button onClick={this.handleRightButtonClicked}>
-            <span className="glyphicon glyphicon-menu-right"></span>
+            <Glyphicon glyph="menu-right" />
           </Button>
         </ButtonGroup>
       </ButtonToolbar>

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Home from './Home/Home';
+import HomePage from './Home/HomePage';
 import Application from './Application/Application';
 
 class App extends React.Component {
@@ -9,7 +9,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={HomePage} />
           <Route path="/app" component={Application} />
         </div>
       </Router>
