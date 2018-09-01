@@ -86,6 +86,7 @@ class Calendar extends React.Component<object, ClendarState> {
           views={["month"]}
           toolbar={false}
           date={this.state.date}
+          onNavigate={(newDate: Date, action: String) => console.log('big calendar on navigate') }
         />
       </div>
     );
