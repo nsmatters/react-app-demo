@@ -28,7 +28,7 @@ class Application extends React.Component {
             <tbody>
               {platforms.map((platform: Platform) => {
                 return (
-                  <tr>
+                  <tr key={platform.id}>
                     <td>{platform.id}</td>
                     <td>{platform.name}</td>
                   </tr>);
