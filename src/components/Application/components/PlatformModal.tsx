@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { Modal, Button, FormGroup, ControlLabel, FormControl } from 'react-bootstrap'
-import { Platform } from '../ApplicationModel'
+import { PlatformItem } from '../ApplicationModel'
 
 interface PlatformModalProps {
   show: boolean;
   onHide: () => void;
-  platform?: Platform;
+  platform?: PlatformItem;
 }
 
 interface PlatfromModalState {
