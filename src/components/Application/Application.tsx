@@ -1,13 +1,13 @@
 import * as React from 'react';
 
-import { AppItem } from '../AppItem/AppItem'
+import { AppItem } from './components/AppItem'
 import { Label, Table, Button, Glyphicon } from 'react-bootstrap';
-import PlatformModal from './PlatformModal'
+import PlatformModal from './components/PlatformModal'
 import { Platform } from './ApplicationModel'
 
 import './Application.css'
 
-const applist = [1, 2, 3, 4, 5];
+
 
 interface ApplicationState {
   platformModalShow: boolean;
@@ -38,6 +38,8 @@ class Application extends React.Component<object, ApplicationState> {
 
   render() {
     const platforms: Platform[] = [{ id: 0, name: "iOS" }, { id: 1, name: "Android" }];
+    
+    const applist = [1, 2, 3, 4, 5];
     return (
       <div className="container-fluid">
         <div>

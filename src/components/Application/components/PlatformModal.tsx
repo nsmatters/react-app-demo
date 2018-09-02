@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Modal, Button, FormGroup, ControlLabel, FormControl } from 'react-bootstrap'
-import { Platform } from './ApplicationModel'
+import { Platform } from '../ApplicationModel'
 
 interface PlatformModalProps {
   show: boolean;
@@ -8,14 +8,38 @@ interface PlatformModalProps {
   platform?: Platform;
 }
 
-export default class PlatformModal extends React.Component<PlatformModalProps, object> {
+interface PlatfromModalState {
+  name: string;
+}
+
+export default class PlatformModal extends React.Component<PlatformModalProps, PlatfromModalState> {
+
+  constructor(props: PlatformModalProps) {
+    super(props);
+    this.state = {name: ''}
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleHide = this.handleHide.bind(this);
+  }
+
+  handleInputChange(e: React.FormEvent<FormControl & HTMLInputElement>) {
+    this.setState({name: e.currentTarget.value })
+  }
+
+  handleHide() {
+    this.setState({name: ''})
+    this.props.onHide();
+  }
+
   render() {
+
     const title = this.props.platform ? 'Modify Platform' : 'New Platform';
-    const platformName = this.props.platform ? this.props.platform.name : '';
+    const name = this.props.platform ? this.props.platform.name : '';
+    const platformName =  this.state.name.length > 0 ? this.state.name : name;
     return (
       <Modal
         show={this.props.show}
-        onHide={this.props.onHide}
+        onHide={this.handleHide}
         bsSize="large"
         aria-labelledby="contained-modal-title-lg"
       >
@@ -30,13 +54,14 @@ export default class PlatformModal extends React.Component<PlatformModalProps, o
                 type="text"
                 value={platformName}
                 placeholder="Enter platform name"
+                onChange={this.handleInputChange}
               >
               </FormControl>
             </FormGroup>
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={this.props.onHide}>Close</Button>
+          <Button onClick={this.handleHide}>Close</Button>
         </Modal.Footer>
 
       </Modal>
