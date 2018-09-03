@@ -1,12 +1,13 @@
 import * as React from 'react';
 import Calendar from '../HomeCalendar/Calendar'
+import { Grid } from 'react-bootstrap'
 
 class HomePage extends React.Component {
   render() {
     return (
-      <div className="container-fluid">
+      <Grid fluid>
         <Calendar />
-      </div>
+      </Grid>
     );
   }
 }

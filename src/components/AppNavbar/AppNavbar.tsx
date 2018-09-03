@@ -1,29 +1,28 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import './AppNavbar.css'
 
 class AppNavbar extends React.Component {
+
   render() {
-    const paths = ['/app'];
-    const names = ['Applications'];
-
-    const list = paths.map((path: string, index: number) => {
-      return (<li key={index}>
-                <Link to={path}>{names[index]}</Link>
-              </li>);
-    });
-
     return (
-      <nav className="navbar navbar-inverse">
-        <div className="container-fluid">
-          <div className="navbar-header">
-            <Link to="/" className="navbar-brand">Coding for fun</Link>
-          </div>
-          <ul className="nav navbar-nav">
-            { list }
-          </ul>
-        </div>
-      </nav>
+      <Navbar inverse fluid>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <Link to="/">Coding for fun</Link>
+          </Navbar.Brand>
+        </Navbar.Header>
+        <Nav>
+          <LinkContainer to="/app">
+            <NavItem eventKey={1}>Applications</NavItem>
+          </LinkContainer>
+          <NavDropdown eventKey={2} title="Tools" id="basic-nav-dropdown" >
+              <MenuItem eventKey={2.1}>Schemes</MenuItem>
+          </NavDropdown>
+        </Nav>
+      </Navbar>
     );
   }
 }

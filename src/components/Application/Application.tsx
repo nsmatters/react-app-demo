@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Grid } from 'react-bootstrap'
 
 import PlatformModal from './components/PlatformModal';
 import AppPageHeader from './components/AppPageHeader';
@@ -74,7 +75,7 @@ class Application extends React.Component<object, ApplicationState> {
     }
     const applist = [maoyanApp, meituanApp, dianpingApp, gewaraApp];
     return (
-      <div className="container-fluid">
+      <Grid fluid>
         <div>
           <AppPageHeader name="Platform" onClick={this.handleNewPlatform}/>
           <PlatformTable platfroms={platforms} onClick={this.handlePlatformModalShow}/>
@@ -88,7 +89,7 @@ class Application extends React.Component<object, ApplicationState> {
           <AppPageHeader name="Applications" onClick={this.handleNewApp} />
           <ApplicationTable list={applist} />
         </div>
-      </div>
+      </Grid>
     );
   }
 }
