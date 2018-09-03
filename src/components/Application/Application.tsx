@@ -1,10 +1,9 @@
 import * as React from 'react';
 
-import { AppItem } from './components/AppItem';
-import { Row } from 'react-bootstrap';
 import PlatformModal from './components/PlatformModal';
 import AppPageHeader from './components/AppPageHeader';
 import PlatformTable from './components/PlatformTable';
+import ApplicationTable from './components/ApplicationTable'
 import { PlatformItem, ApplicationItem } from './ApplicationModel'
 
 import './Application.css'
@@ -51,27 +50,27 @@ class Application extends React.Component<object, ApplicationState> {
       id: 1,
       name: '猫眼电影',
       desc: '移动应用',
-      icon: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535905479491&di=7b2fc5d82c5b5f8ed087419c21af2f80&imgtype=0&src=http%3A%2F%2Fimgs.ebrun.com%2Fresources%2F2017_04%2F2017_04_27%2F2017042763214932584558314_origin.png'
-    };
+      icon: 'https://is5-ssl.mzstatic.com/image/thumb/Purple118/v4/c1/e0/f3/c1e0f3cc-a30d-6562-8c5a-4220a60ae343/AppIcon-1x_U007emarketing-85-220-0-5.png/246x0w.jpg'
+    }
     const meituanApp: ApplicationItem = {
       id: 2,
       name: '美团',
       desc: '移动应用',
-      icon: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535905553787&di=4904c3bd4bd61288cf3392aa6c1582cd&imgtype=0&src=http%3A%2F%2Fwww.hlbrdaily.com.cn%2Fuploadfile%2F201708%2F16%2F948400969.jpg'
+      icon: 'https://is4-ssl.mzstatic.com/image/thumb/Purple128/v4/37/15/7e/37157e7e-edcc-65da-2a11-c8a2447fc047/source/512x512bb.jpg'
     }
 
     const dianpingApp: ApplicationItem = {
       id: 3,
-      name: '点评',
+      name: '大众点评',
       desc: '移动应用',
-      icon: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535905600126&di=8bc94e8ad1c1c628f1445e87e0a50e3a&imgtype=0&src=http%3A%2F%2Fpic.baike.soso.com%2Fp%2F20140219%2F20140219205504-1294308152.jpg'
+      icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaiMLYFUKf9hkSAH0E25KUDwDtbnLwcYQ4uviyFbgXwlb4H4Sa'
     }
 
     const gewaraApp: ApplicationItem = {
       id: 4,
       name: '格瓦拉',
       desc: '移动应用',
-      icon: ''
+      icon: 'https://pic.cr173.com/up/2016-7/20167161011573202.png'
     }
     const applist = [maoyanApp, meituanApp, dianpingApp, gewaraApp];
     return (
@@ -87,10 +86,7 @@ class Application extends React.Component<object, ApplicationState> {
         </div>
         <div>
           <AppPageHeader name="Applications" onClick={this.handleNewApp} />
-          <Row>
-
-          </Row>
-          {applist.map((x, index) => <AppItem key={index} />)}
+          <ApplicationTable list={applist} />
         </div>
       </div>
     );
