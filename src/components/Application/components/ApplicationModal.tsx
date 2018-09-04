@@ -16,12 +16,43 @@ export default class ApplicationModal extends React.Component<ApplicationModalPr
   constructor(props: ApplicationModalProps) {
     super(props);
     this.state = { name: '', icon: '' };
+
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleIconChange = this.handleIconChange.bind(this);
+
+    this.clearState = this.clearState.bind(this);
+
+    this.handleClose = this.handleClose.bind(this);
+    this.handleNewApplication = this.handleNewApplication.bind(this);
   }
+
+  handleNameChange(e: React.FormEvent<FormControl & HTMLInputElement>) {
+    this.setState({ name: e.currentTarget.value });
+  }
+
+  handleIconChange(e: React.FormEvent<FormControl & HTMLInputElement>) {
+    this.setState({ icon: e.currentTarget.value });
+  }
+
+  handleClose() {
+    this.clearState()
+    this.props.onHide();
+  }
+
+  handleNewApplication() {
+    this.clearState()
+    this.handleClose();
+  }
+
+  clearState() {
+    this.setState({ name: '', icon: '' });
+  }
+
   render() {
     return (
       <Modal
         show={this.props.show}
-        onHide={this.props.onHide}
+        onHide={this.handleClose}
         bsSize="large"
         aria-labelledby="contained-modal-title-lg"
       >
@@ -36,6 +67,7 @@ export default class ApplicationModal extends React.Component<ApplicationModalPr
                 type="text"
                 value={this.state.name}
                 placeholder="Enter platform name"
+                onChange={this.handleNameChange}
               >
               </FormControl>
             </FormGroup>
@@ -45,13 +77,14 @@ export default class ApplicationModal extends React.Component<ApplicationModalPr
                 type="text"
                 value={this.state.icon}
                 placeholder="Enter icon url"
+                onChange={this.handleIconChange}
               >
               </FormControl>
             </FormGroup>
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button bsStyle="primary" onClick={this.props.onHide}>Add</Button>
+          <Button bsStyle="primary" onClick={this.handleNewApplication}>Add</Button>
         </Modal.Footer>
       </Modal>
     );
