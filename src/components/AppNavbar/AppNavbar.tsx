@@ -19,7 +19,7 @@ class AppNavbar extends React.Component {
             <NavItem eventKey={1}>Applications</NavItem>
           </LinkContainer>
           <NavDropdown eventKey={2} title="Tools" id="basic-nav-dropdown" >
-            <LinkContainer to="/app">
+            <LinkContainer to="/scheme">
               <MenuItem eventKey={2.1}>Schemes</MenuItem>
             </LinkContainer>
           </NavDropdown>

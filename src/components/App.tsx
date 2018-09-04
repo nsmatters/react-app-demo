@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import AppNavbar from './AppNavbar/AppNavbar'
 import HomePage from './Home/HomePage';
-import Application from './Application/Application';
+import ApplicationPage from './Application/ApplicationPage';
+import SchemePage from './SchemePage/SchemePage';
 
 class App extends React.Component {
   render() {
@@ -13,7 +14,8 @@ class App extends React.Component {
           <AppNavbar />
           <Switch>
             <Route path="/" exact component={HomePage} />
-            <Route path="/app" component={Application} />
+            <Route path="/app" component={ApplicationPage} />
+            <Route path="/scheme" component={SchemePage} />
           </Switch>
         </div>
       </Router>

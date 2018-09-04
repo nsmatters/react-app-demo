@@ -7,19 +7,18 @@ import PlatformTable from './components/PlatformTable';
 import ApplicationTable from './components/ApplicationTable'
 import { PlatformItem, ApplicationItem } from './ApplicationModel'
 
-import './Application.css'
+import './ApplicationPage.css'
 
 
-
-interface ApplicationState {
+interface ApplicationPageState {
   platformModalShow: boolean;
   platfformInfo?: PlatformItem;
 }
 
-class Application extends React.Component<object, ApplicationState> {
+class ApplicationPage extends React.Component<object, ApplicationPageState> {
   constructor(props: object) {
     super(props);
-    this.state = {platformModalShow: false}
+    this.state = { platformModalShow: false }
 
     this.handlePlatformModalHide = this.handlePlatformModalHide.bind(this);
     this.handlePlatformModalShow = this.handlePlatformModalShow.bind(this);
@@ -29,11 +28,11 @@ class Application extends React.Component<object, ApplicationState> {
   }
 
   handlePlatformModalHide() {
-    this.setState({platformModalShow: false});
+    this.setState({ platformModalShow: false });
   }
 
   handlePlatformModalShow(platform?: PlatformItem) {
-    this.setState({platformModalShow: true, platfformInfo: platform});
+    this.setState({ platformModalShow: true, platfformInfo: platform });
   }
 
   handleNewPlatform() {
@@ -47,7 +46,7 @@ class Application extends React.Component<object, ApplicationState> {
   render() {
     const platforms: PlatformItem[] = [{ id: 0, name: "iOS" }, { id: 1, name: "Android" }];
 
-    const maoyanApp: ApplicationItem  = { 
+    const maoyanApp: ApplicationItem = {
       id: 1,
       name: '猫眼电影',
       desc: '移动应用',
@@ -77,10 +76,10 @@ class Application extends React.Component<object, ApplicationState> {
     return (
       <Grid fluid>
         <div>
-          <AppPageHeader name="Platform" onClick={this.handleNewPlatform}/>
-          <PlatformTable platfroms={platforms} onClick={this.handlePlatformModalShow}/>
-          <PlatformModal 
-            show={this.state.platformModalShow} 
+          <AppPageHeader name="Platform" onClick={this.handleNewPlatform} />
+          <PlatformTable platfroms={platforms} onClick={this.handlePlatformModalShow} />
+          <PlatformModal
+            show={this.state.platformModalShow}
             onHide={this.handlePlatformModalHide}
             platform={this.state.platfformInfo}
           />
@@ -94,4 +93,4 @@ class Application extends React.Component<object, ApplicationState> {
   }
 }
 
-export default Application
+export default ApplicationPage;
