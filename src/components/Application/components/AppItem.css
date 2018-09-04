@@ -4,6 +4,10 @@
   margin: 0 15px;
 }
 
+.appitem:hover {
+  text-decoration: none;
+}
+
 .appitem h3 {
   text-align: center;
 }
