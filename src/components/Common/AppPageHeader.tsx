@@ -10,8 +10,8 @@ export default class AppPageHeader extends React.Component<AppPageHeaderProps, o
   render() {
     return (
       <PageHeader>
-        {this.props.name}
-        <Button 
+        <small>{this.props.name}</small>
+        <Button
           className="add-right"
           onClick={this.props.onClick}
         >

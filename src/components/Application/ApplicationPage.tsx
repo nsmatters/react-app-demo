@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Grid } from 'react-bootstrap'
 
 import PlatformModal from './components/PlatformModal';
-import AppPageHeader from './components/AppPageHeader';
+import AppPageHeader from '../Common/AppPageHeader';
 import PlatformTable from './components/PlatformTable';
 import ApplicationTable from './components/ApplicationTable';
 import ApplicationModal from './components/ApplicationModal';
