@@ -4,8 +4,9 @@ import { Grid } from 'react-bootstrap'
 import PlatformModal from './components/PlatformModal';
 import AppPageHeader from './components/AppPageHeader';
 import PlatformTable from './components/PlatformTable';
-import ApplicationTable from './components/ApplicationTable'
-import { PlatformItem, ApplicationItem } from './ApplicationModel'
+import ApplicationTable from './components/ApplicationTable';
+import ApplicationModal from './components/ApplicationModal';
+import { PlatformItem, ApplicationItem } from './ApplicationModel';
 
 import './ApplicationPage.css'
 
@@ -13,18 +14,20 @@ import './ApplicationPage.css'
 interface ApplicationPageState {
   platformModalShow: boolean;
   platfformInfo?: PlatformItem;
+  applicationModalShow: boolean;
 }
 
 class ApplicationPage extends React.Component<object, ApplicationPageState> {
   constructor(props: object) {
     super(props);
-    this.state = { platformModalShow: false }
+    this.state = { platformModalShow: false, applicationModalShow: false }
 
     this.handlePlatformModalHide = this.handlePlatformModalHide.bind(this);
     this.handlePlatformModalShow = this.handlePlatformModalShow.bind(this);
     this.handleNewPlatform = this.handleNewPlatform.bind(this);
 
     this.handleNewApp = this.handleNewApp.bind(this);
+    this.handleApplicationModalHide = this.handleApplicationModalHide.bind(this);
   }
 
   handlePlatformModalHide() {
@@ -40,7 +43,11 @@ class ApplicationPage extends React.Component<object, ApplicationPageState> {
   }
 
   handleNewApp() {
+    this.setState({ applicationModalShow: true });
+  }
 
+  handleApplicationModalHide() {
+    this.setState({ applicationModalShow: false });
   }
 
   render() {
@@ -87,6 +94,7 @@ class ApplicationPage extends React.Component<object, ApplicationPageState> {
         <div>
           <AppPageHeader name="Applications" onClick={this.handleNewApp} />
           <ApplicationTable list={applist} />
+          <ApplicationModal show={this.state.applicationModalShow} onHide={this.handleApplicationModalHide} />
         </div>
       </Grid>
     );

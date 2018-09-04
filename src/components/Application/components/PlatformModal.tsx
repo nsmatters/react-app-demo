@@ -16,18 +16,18 @@ export default class PlatformModal extends React.Component<PlatformModalProps, P
 
   constructor(props: PlatformModalProps) {
     super(props);
-    this.state = {name: ''}
+    this.state = { name: '' }
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleHide = this.handleHide.bind(this);
   }
 
   handleInputChange(e: React.FormEvent<FormControl & HTMLInputElement>) {
-    this.setState({name: e.currentTarget.value })
+    this.setState({ name: e.currentTarget.value })
   }
 
   handleHide() {
-    this.setState({name: ''})
+    this.setState({ name: '' })
     this.props.onHide();
   }
 
@@ -35,7 +35,8 @@ export default class PlatformModal extends React.Component<PlatformModalProps, P
 
     const title = this.props.platform ? 'Modify Platform' : 'New Platform';
     const name = this.props.platform ? this.props.platform.name : '';
-    const platformName =  this.state.name.length > 0 ? this.state.name : name;
+    const platformName = this.state.name.length > 0 ? this.state.name : name;
+    const buttonName = this.props.platform ? 'Update' : 'Add';
     return (
       <Modal
         show={this.props.show}
@@ -61,9 +62,8 @@ export default class PlatformModal extends React.Component<PlatformModalProps, P
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={this.handleHide}>Close</Button>
+          <Button bsStyle="primary" onClick={this.handleHide}>{buttonName}</Button>
         </Modal.Footer>
-
       </Modal>
     );
   }
