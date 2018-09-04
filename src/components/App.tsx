@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AppNavbar from './AppNavbar/AppNavbar'
 import HomePage from './Home/HomePage';
 import ApplicationPage from './Application/ApplicationPage';
+import ApplicationDetailPage from './ApplicationDetail/ApplicationDetailPage'
 import SchemePage from './SchemePage/SchemePage';
 
 class App extends React.Component {
@@ -14,7 +15,8 @@ class App extends React.Component {
           <AppNavbar />
           <Switch>
             <Route path="/" exact component={HomePage} />
-            <Route path="/app" component={ApplicationPage} />
+            <Route exact path="/app" component={ApplicationPage} />
+            <Route path="/app/:id" component={ApplicationDetailPage} />
             <Route path="/scheme" component={SchemePage} />
           </Switch>
         </div>
